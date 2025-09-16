@@ -14,6 +14,8 @@ body {
 .wrapper {
   width: 100%;
   height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr 200px;
@@ -35,10 +37,8 @@ body {
 .wrapper main {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 4fr;
-  grid-template-areas:
-    "header"
-    "albums";
+  grid-template-rows: 1fr;
+  grid-template-areas: "albums";
   grid-area: main;
 }
 
@@ -46,14 +46,10 @@ body {
   grid-area: foot;
 }
 
-.header {
-  width: 100%;
-  grid-area: "header";
-}
-
 .albums {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
@@ -64,12 +60,9 @@ body {
 .album {
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  background-color: black;
-  min-width: 300px;
-  height: 100%;
+  justify-content: center;
+  max-width: 20%;
   padding: 1rem;
-  gap: 1rem;
   scroll-snap-align: center;
 }
 
@@ -94,6 +87,43 @@ body {
   height: 5%;
   display: flex;
   justify-content: end;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
+}
+
+#album-link {
+  width: 5%;
+}
+
+#album2 {
+  transform: scale(1.6);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+#album1,
+#album3 {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+#album0,
+#album4 {
+  transform: scale(0.6);
+}
+
+#album0 .album-links,
+#album1 .album-links,
+#album3 .album-links,
+#album4 .album-links {
+  display: none;
+}
+
+.album {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  background-color: black;
+  gap: 1rem;
 }
