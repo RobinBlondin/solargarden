@@ -12,10 +12,7 @@ const clientId = process.env.SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 
 app.get("/api/spotify/token", async (req, res) => {
-  console.log("Fetching Spotify token...");
   try {
-    console.log("clientId:", clientId);
-    console.log("clientSecret:", clientSecret);
     const auth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
 
     const response = await fetch("https://accounts.spotify.com/api/token", {
